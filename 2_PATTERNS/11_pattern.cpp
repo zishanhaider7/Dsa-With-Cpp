@@ -18,6 +18,7 @@ void pattern11(int n){
 
 int main(){
     int n;
+    
     cin>>n;
     pattern11(n);
     return 0;
