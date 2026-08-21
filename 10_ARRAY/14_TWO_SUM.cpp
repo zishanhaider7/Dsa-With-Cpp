@@ -18,8 +18,6 @@ void brute(int arr[],int n,int target)
     }
     
 }
-
-
 vector<int> better(vector<int>&arr,int target)
 {
     map<int,int>mpp;
@@ -28,12 +26,19 @@ vector<int> better(vector<int>&arr,int target)
     {
         int num=arr[i];
         int required=target-num;
-        if(mpp.find(required) != mpp.end()) cout<<"yes at index  "<<mpp[required]<<"and"<<i<<endl;
+
+        if(mpp.find(required) != mpp.end())
+        {            
+            return {mpp[required],i};  // it will checked is required is availabel in hash-map or not
+        }
+
         else
         {
-            mpp[num]=i;
+            mpp[num]=i;  // it will push the element in the hash-map  so every element will pushed into the map one by one
         }
+
     }
+
     return {-1,-1};
     
 }
@@ -43,14 +48,14 @@ string optimal(vector<int>&arr,int target)
 {
     int left=0;
     int right =arr.size()-1;
-
+    sort(arr.begin(),arr.end());
     while(left<right)
     {
         int sum=arr[left]+arr[right];
-        if(sum==target) return "yes we get it";
+        if(sum==target) return "lets go we have finded the answer of two sum ";
 
         else if(sum<target) left++;
-        else right++;
+        else right--;
     }
     return "No";
 }
@@ -60,7 +65,8 @@ int main()
 {
     vector<int> arr={1,2,3,4,5};
     int target=5;
-    better(arr,target);
+    // better(arr,target);
+    cout<<optimal(arr,target)<<endl;
     
 
 
