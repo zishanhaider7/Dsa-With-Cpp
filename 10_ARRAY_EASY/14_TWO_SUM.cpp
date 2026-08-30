@@ -52,12 +52,12 @@ string optimal(vector<int>&arr,int target)
     while(left<right)
     {
         int sum=arr[left]+arr[right];
-        if(sum==target) return "lets go we have finded the answer of two sum ";
+        if(sum==target) return "lets go we have finded the answer of Two sum ";
 
         else if(sum<target) left++;
         else right--;
     }
-    return "No";
+    return "No there is no any target found";
 }
 
 
