@@ -31,7 +31,7 @@ int rotate_by_d(int arr[],int n)
         j++;
     }
     
-
+ 
     
 }
 int main()
